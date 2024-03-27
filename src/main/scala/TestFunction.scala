@@ -1,3 +1,4 @@
+import scala.io.StdIn
 import scala.math._
 import scala.util._
 
@@ -51,24 +52,32 @@ object TestFunction extends App {
 
   // 3) написать любую функцию с побочным эффектом
 
-  val sqr2 = new((Int) => Int) {
+  /*val sqr2 = new((Int) => Int) {
     override def apply(v1: Int): Int = v1 * v1
 
     println("Я посчитала квадрат числа и теперь это можно где-то использовать")
-  }
+  }*/
 
   // 4) Понять что такое функция высшего порядка(Чистая функция зачастую является HOF - higher-order function) - Функции высшего порядка
   // могут принимать другие функции в качестве параметров или возвращать функцию в качестве результата.
 
 
-  // 5) Понять что такое замыкание на функции - не догнал
+  // 5) Понять что такое замыкание на функции - догнал, замыкание это  функция первого класса,
+  //в теле которой присутствуют ссылки на переменные, объявленные ВНЕ тела этой функции в окружающем коде
+  //и не являющиеся её параметрами. Говоря другим языком, замыкание — это
+  //функция, которая ссылается на свободные переменные в своей области видимости.
+  // например:
+  //def method1()={}
+  //def method2() = {
+  // method1() // замыкание мы используем на примере функцию которая находится рядом. Как один из элементов функции
+  //}
 
 
   // 6) Что такое частично определенная функция, написать любую функцию на основе примера
 
   /*val multyply: (Int, Int) => Int = (x, y) => x * y
     val multyply2: Int => Int = multyply(2, _)
-  println(multyply2(3))                         // Чем это отличается от примера на хабре??? Это каррирование??? определенно, это каррирование
+  println(multyply2(3))                         //  Оказалось, это замыкание))
   val add: (Int, Int, Int) => Int = (a, b, c) => a + b + c
   val add2: Int => Int = add(2, 3, _)
   println(add2(5))*/
@@ -107,7 +116,14 @@ object TestFunction extends App {
 
   //(-5 to 5).foreach(a => println(caseList(a)))
 
-  // частично определенная функция, это одна из частей бОльшей функции?!
+  // частично определенная функция - Множество предложений case, заключенных в фигурные скобки,
+  //образует частично определенную функцию (partial function) –
+  //функцию, которая может быть определена не для всех входных значений.
+  //Такие функции являются экземплярами класса PartialFunction[A, B].
+  //(A – тип параметра, B – тип возвращаемого значения.) Этот класс
+  //имеет два метода: apply, вычисляющий значение функции из сопо-
+  //ставления с образцом, и isDefinedAt, возвращающий true, если вход-
+  //ное значение совпадает хотя бы с одним образцом.
 
 
   // 7) Каррирование Написать функцию, которая принимает 2 набора параметров
@@ -143,8 +159,8 @@ object TestFunction extends App {
   //    }
   //  }
 
-  println(someFunc("Valid")(None))
-  println(someFunc("raAkAtUnA")(Some("фыафып")))
+  //println(someFunc("Valid")(None))
+  //println(someFunc("raAkAtUnA")(Some("фыафып")))
 
 
   // 8)Анонимная функция/ Лямбда функция
@@ -174,7 +190,8 @@ object TestFunction extends App {
   //res0: List[Int] = List(2, 4, 6, 8)
 
   //flatMap
-  //flatMap это часто используемый комбинатор, который объединяет map и flatten. flatMap берет функцию, которая работает с вложенными списками и объединяет результаты.
+  //flatMap это часто используемый комбинатор, который объединяет map и flatten. flatMap берет функцию,
+  //которая работает с вложенными списками и объединяет результаты.
   //
   //scala> val nestedNumbers = List(List(1, 2), List(3, 4))
   //nestedNumbers: List[List[Int]] = List(List(1, 2), List(3, 4))
@@ -186,10 +203,10 @@ object TestFunction extends App {
   //scala> nestedNumbers.map((x: List[Int]) => x.map(_ * 2)).flatten
   //res1: List[Int] = List(2, 4, 6, 8)
   //в этом примере вызывается map, а позднее flatten, как пример “комбинаторной” природы этих функций.
-  def squared(a: Double): Option[Double] = {
-    Option.when(a > 0)(math.pow(a, 2.0))
-    // решение в лоб
-  }
+  /* def squared(a: Double): Option[Double] = {
+     Option.when(a > 0)(math.pow(a, 2.0))
+     // решение в лоб
+   }*/
 
   /* def pythMatch(a: Double, b: Double): Option[Double] = {
    squared(a) match {
@@ -202,14 +219,62 @@ object TestFunction extends App {
    }
  }*/
   // Альтернатива с помощью flatmap
-  def pythMatch[T](a: Double, b: Double): Option[Double] = {
-    squared(a).flatMap { a =>
-      squared(b).flatMap { b =>
-        Some(math.sqrt(a + b))
+  /*  def pythMatch[T](a: Double, b: Double): Option[Double] = {
+      squared(a).flatMap { a =>
+        squared(b).flatMap { b =>
+          Some(math.sqrt(a + b))
+        }
       }
-    }
 
+    }*/
+  val names = List("bob", "peter", "paul")
+  //println(names.map(_.toUpperCase)) // идентичен следующему варианту
+  //println(for (n <- names) yield n.toUpperCase()) // идентичен варианту с Мар
+
+  def ulcase(s: String) = Vector(s.toUpperCase(), s.toLowerCase())
+  //println(names.map(ulcase))
+  //println(names.flatMap(ulcase))
+  // Совет. Если метод flatMap используется с функцией, возвращающей зна-
+  //чение типа Option, возвращаемая коллекция будет содержать все значе-
+  //ния v, для которых функция вернет Some(v).
+
+  //val prices = List(5.0, 20.0, 9.95)
+  //val quantities = List(10, 2, 1)
+  //println(prices zip quantities)
+
+  /*case class User(login: String = "not login", name: String = "not name") {
   }
 
+  val max = new User()
+  val x = 10
+  val newUser = if (x > 5) max.copy(login = "kaka") else max.copy(name = "pupupu")
+  println(max)
+  println(newUser)*/
 
+  /*val a = Array("Sanya", "Molodec")
+  val b = Array("sanya", "molodec")
+  println(a.corresponds(b)(_.equalsIgnoreCase(_)))*/
+
+  //(x: Int) => x * 3
+  /*val list: List[Any] = List(
+    "a string",
+    732, // целое число
+    'c', // символ
+    true, // логическое значение
+    () => "анонимная функция возвращающая строку"
+  )
+
+  list.foreach(element => println(element))*/
+  /* println("-3+4".collect {
+     case '+' => 1
+     case '-' => -1
+   }.toList)*/
+  /*class Pair[T <: Comparable[T]](val first: T, val second: T) {
+    def smaller = if (first.compareTo(second) < 0) first else second
+  }
+  val p = new Pair("Fred", "Brooks")
+  println(p.smaller)*/
+
+  val number: Option[Int] = Some(4)
+  println(number.getOrElse("Нет того что нужно было"))
 }
