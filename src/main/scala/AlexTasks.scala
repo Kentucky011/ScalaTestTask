@@ -88,7 +88,11 @@ object AlexTasks extends App {
   object ListReplace {
     implicit class replaceList(list: List[String]) {
       def replaceStingWhenThreeEvenToTrueElseFalse(): List[Boolean] = {
-        list.map(str => if (str.length >= 3) true else false)
+        list map {
+          str =>
+            if (str.length >= 3) true
+            else false
+        }
       }
     }
   }
@@ -96,7 +100,7 @@ object AlexTasks extends App {
   import AlexTasks.ListReplace._
 
   val list1 = List("1", "2", "три", "четыре", "пять")
-  //println(list1.replaceStingWhenThreeEvenToTrueElseFalse())
+  println(list1.replaceStingWhenThreeEvenToTrueElseFalse())
 
   trait A {
     def a: String = "Я из трейта А"
@@ -108,10 +112,16 @@ object AlexTasks extends App {
 
   object C extends A with B {
     override def a: String = super[A].a
+
     val res = super[B].a
   }
-  println(a)
-  println(res)
+  //println(a)
+  //println(res)
+  //def mulOneAtATime(x: Int) = (y: Int) => x * y
+  //println(mulOneAtATime(5)(4))
+
+  /*val list = List(1, 2, 3)
+  println(list.init)// List(1, 2) list.tail - List(2, 3) list.head - 1 list(n) - n*/
 
 
 }

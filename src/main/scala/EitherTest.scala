@@ -1,3 +1,4 @@
+
 import ex.UserException
 
 import scala.util.{Failure, Success, Try}
@@ -15,10 +16,8 @@ object EitherTest extends App {
   }
   //(1 to 10).foreach(_ => println(randomExceptionOrValid()))
 
-  def processingExOrValid(f: => String): Either[String, String] = {
-    Try(f) match {
-      case Success(value) => Right(value)
-      case Failure(ex) => Left(ex.getMessage)
+  def processingExOrValid(f: => Int): Option[Int] = {
+    Try(f).toOption
     }
 
     /*try { // Альтернатива
@@ -26,7 +25,7 @@ object EitherTest extends App {
     } catch {
       case ex: UserException => Left(ex.getMessage)
     }*/
-  }
 
-  (1 to 20).foreach(_ => println(processingExOrValid(randomExceptionOrValid())))
+
+
 }

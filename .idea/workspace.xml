@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="963ca069-b195-4d75-9722-f9fca23927ec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/AlexTasks.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/ScalaBookTasks1.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/TestFunction.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/TestFunction.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/AlexTasks.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/AlexTasks.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/EitherTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/EitherTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/ScalaBookTasks1.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ScalaBookTasks1.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Test.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Test.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +45,7 @@
     "Application.List.executor": "Run",
     "Application.ScalaBookTasks1.executor": "Run",
     "Application.Test.executor": "Run",
+    "Application.Test1.executor": "Run",
     "Application.TestFunction.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -52,11 +54,11 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15429688",
     "project.structure.side.proportion": "0.2",
-    "scala_project_settings_configurable.last_selected_tab_index": "0",
+    "scala_project_settings_configurable.last_selected_tab_index": "1",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.scala.settings.ScalaProjectSettingsConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.AlexTasks">
+  <component name="RunManager" selected="Application.Test1">
     <configuration name="AlexTasks" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="AlexTasks" />
       <module name="OptionTask" />
@@ -64,8 +66,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="List" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="List" />
+    <configuration name="EitherTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="EitherTest" />
       <module name="OptionTask" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -85,8 +87,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestFunction" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="TestFunction" />
+    <configuration name="Test1" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Test1" />
       <module name="OptionTask" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,10 +96,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AlexTasks" />
+        <item itemvalue="Application.Test1" />
         <item itemvalue="Application.ScalaBookTasks1" />
-        <item itemvalue="Application.List" />
-        <item itemvalue="Application.TestFunction" />
+        <item itemvalue="Application.AlexTasks" />
+        <item itemvalue="Application.EitherTest" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>

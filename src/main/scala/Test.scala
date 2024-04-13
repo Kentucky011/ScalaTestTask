@@ -15,7 +15,7 @@ object Test extends App {
     case None => false
   }
   //println(result1)
-
+  //val result3 = if (false) 15 else throw new Exception("ERROR")
   def optConvert[T](list: List[Option[T]]): Option[List[T]] = {
     list match {
       case Nil => Option(List.empty[T])
